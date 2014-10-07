@@ -1,0 +1,24 @@
+html, body {
+    font-family: helvetica;
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5 {
+    margin-bottom: 0px;
+}
+
+div {
+    display: block;
+}
+
+li {
+    list-style-type: none;
+}
+
+#header {
+    padding-top: 15px;
+    padding-left: 10px;
+    background: #dddddd;
+    height: 120px;
+}
