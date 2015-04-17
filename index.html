@@ -1,97 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" href="resume.css" type="text/css" />
-        <title>Joan Barros - Resume</title>
-    </head>
-    <body>
-        <div id="header">
-            <h1>Joan Barros</h1>
-            <p>Software Developer</p>
-        </div>
-        
-        <div id="education">
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    <h2>Colegio Loyola</h2>
-                    <p>
-                        Primary Education
-                    </p>
-                </li>
-                <li>
-                    <h2>Pontificia Universidad Madre y Maestra</h2>
-                    <p>
-                        Professional Education
-                    </p>
-                </li>
-            </ul>
-        </div>
-        
-        <div id="proexp">
-            <h2>Professional Experience</h2>
-            <ul>
-                <li>
-                    <h3>Teatro Nacional</h3>
-                    <p>
-                        This was my internship. Here mi job was to maintain the
-                        infrastructure and solve problems with the workstations.
-                        One of the bigger challenges was to join three separate
-                        networks within the institution.
-                    </p>
-                </li>
-                <li>
-                    <h3>Berry Dominicana</h3>
-                    <p>
-                        I started as a software analyst in charge of supporting
-                        many systems and processes. After this stage I moved on
-                        to be a developer. Here I worked with many Microsoft
-                        Technologies including vbscript, asp.net, vb.net, c#.net
-                        and many other non development tools like Reporting
-                        Services and Analysis Services.
-                    </p>
-                </li>
-                <li>
-                    <h3>Newtech</h3>
-                    <p>
-                        One of my roles is working with SSRS Reporting Services.
-                        I also work as a Developer, working with technologies 
-                        like vb.net, c#.net and others.
-                    </p>
-                </li>
-            </ul>
-        </div>
-        
-        <div id="techs">
-            <h2>Technologies</h2>
-            <ul>
-                <li>HTML[5]</li>
-                <li>PHP</li>
-                <li>Python</li>
-                <li>Ruby</li>
-                <li>Javascript</li>
-                <li>Go</li>
-                <li>C#</li>
-                <li>ASP.NET MVC 4</li>
-                <li>MongoDB</li>
-            </ul>
-        </div>
-        
-        <div id="future">
-            <h2>The Future</h2>
-            <p>
-                In the near future I would like to branch out and professionally
-                develop in other technologies outside the Microsoft spectrum.
-                I really prefer the open source world, mainly Python, Ruby and
-                now Go.
-            </p>
-            
-            <p>
-                In the long term Id like to create my own startup with some
-                projects I have laid out. Im actively working on them but they've
-                not yet come to fruition.
-            </p>
-        </div>
-    </body>
-</html>
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1>Posts</h1>
+
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
