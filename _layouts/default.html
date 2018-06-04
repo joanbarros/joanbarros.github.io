@@ -7,16 +7,17 @@
     <body id="page-top" class="index">
 
     {% include header.html %}
-    {% include services.html %}
-    {% comment %}
-    {% include portfolio_grid.html %}
-    {% endcomment %}
-    {% include about.html %}
-    {% comment %}
-    {% include team.html %}
-    {% include clients.html %}
-    {% include contact.html %}
-    {% endcomment %}
+    {% include me.html %}
+        {% comment %}
+        {% include services.html %}
+        {% include portfolio_grid.html %}
+        {% endcomment %}
+    {% include timeline.html %}
+        {% comment %}
+        {% include team.html %}
+        {% include clients.html %}
+        {% include contact.html %}
+        {% endcomment %}
     {% include footer.html %}
     {% include modals.html %}
     {% include js.html %}

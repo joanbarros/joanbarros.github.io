@@ -12,6 +12,17 @@ color:
   secondary: fec503  
   secondary-dark: 333
 
+me:
+  email: barros.joan@gmail.com
+  skype: joan.barros
+  social:
+    - title: github
+      url: http://github.com/joanbarros
+    - title: twitter
+      url: http://twitter.com/joanbarros
+    - title: linkedin
+      url: https://www.linkedin.com/in/joanbarros/
+
 # Team names, titles and social links
 people:
 - name: Kay Garland
@@ -47,12 +58,47 @@ people:
     - title: google-plus
       url: #
 
+timeline:
+  - from: 1992
+    to: 2005
+    title: School at Colegio Loyola
+    description: It's a Jesuit run school.
+    ref_link: http://loyola.edu.do/
+    image: loyola.png
+
+  - from: 2005
+    to: 2010
+    title: University at Pontificia Universidad Catolica Madre y Maestra
+    description: Best education experience I've ever had. I really liked college. I had a good couple of teachers that I feel pushed me in the right direction. I think I really learned a lot there.
+    ref_link: http://pucmm.edu.do/
+    image: pucmm.png
+
+  - from: 2011
+    to: 2014
+    title: First Job at Berry Dominicana
+    description: This was my second work experience after my internship and was where I felt really stared to get involved in the industry.
+    ref_link:
+    image: berry.png
+
+  - from: 2014
+    to: 2017
+    title: Newtech SA
+    description: I really liked it there. It had a really good atmosphere, and for the most part it's a really good place to work. Nothing is perfect though, it had it's flaws like everything. Working with MS SSRS, C#.NET MVC and ASP.NET sites and getting into working with Salesforce development.
+    image: newtech.png
+
+  - from: 2017
+    title: KORE Wireless
+    description: KORE Wireless is a multinational enterprise which provides IoT solutoins to businesses. Here I work as a Team Lead for a Sustaining and Development team in charge of two differnet platforms. The tech stack is very Mirosoft oriented with most of the code in C# and T-SQL.
+    image: kore.png
+
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: twitter
     url: http://twitter.com/joanbarros
   - title: facebook
     url: http://facebook.com/joanbarros
+  - title: linkedin
+    url: https://www.linkedin.com/in/joanbarros/
   - title: stack-overflow
     url: http://stackoverflow.com/users/244054/joan-barros
   - title: bitbucket 
