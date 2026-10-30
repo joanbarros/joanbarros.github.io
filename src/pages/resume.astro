@@ -1,0 +1,216 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { profile } from "../data/profile";
+import { formatPeriod, sortTimeline } from "../lib/period";
+
+const entries = sortTimeline(await getCollection("timeline"));
+const sections = [
+  { title: "Experience", items: entries.filter((e) => e.data.kind === "work") },
+  { title: "Education", items: entries.filter((e) => e.data.kind === "education") },
+];
+---
+
+<Base title="Resume" description={`Resume of ${profile.name}, ${profile.headline.toLowerCase()}.`}>
+  <Header slot="header" />
+
+  <article class="resume container">
+    <header class="top">
+      <div>
+        <h1>{profile.name}</h1>
+        <p class="headline">{profile.headline}</p>
+        <p class="location">{profile.location}</p>
+      </div>
+      <ul class="contact">
+        <li><a href={`mailto:${profile.email}`}>{profile.email}</a></li>
+        {
+          profile.links.map((link) => (
+            <li>
+              <a href={link.href}>{link.href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <button class="print" type="button" onclick="window.print()">Print / save as PDF</button>
+    </header>
+
+    <section aria-labelledby="summary-title">
+      <h2 id="summary-title">Summary</h2>
+      <p>{profile.intro.join(" ")}</p>
+    </section>
+
+    {
+      sections.map((section) => (
+        <section>
+          <h2>{section.title}</h2>
+          {section.items.map(({ data }) => {
+            const period = formatPeriod(data.start, data.end, "long");
+            return (
+              <div class="entry">
+                <div class="entry-head">
+                  <h3>{data.org}</h3>
+                  {period && <span class="period">{period}</span>}
+                </div>
+                {data.role && <p class="role">{data.role}</p>}
+                {data.location && <p class="where">{data.location}</p>}
+                {(data.details ?? data.summary) && <p>{data.details ?? data.summary}</p>}
+              </div>
+            );
+          })}
+        </section>
+      ))
+    }
+
+    <section aria-labelledby="strengths-title">
+      <h2 id="strengths-title">Core strengths</h2>
+      <p>{profile.strengths.join(" · ")}</p>
+    </section>
+
+    <section aria-labelledby="tech-title">
+      <h2 id="tech-title">Technologies</h2>
+      <p>{profile.technologies.join(" · ")}</p>
+    </section>
+
+    <section aria-labelledby="languages-title">
+      <h2 id="languages-title">Languages</h2>
+      <p>
+        {profile.languages.map((lang, i) => (
+          <>
+            {i > 0 && " · "}
+            <strong>{lang.name}</strong>: {lang.level}
+          </>
+        ))}
+      </p>
+    </section>
+  </article>
+
+  <Footer slot="footer" />
+</Base>
+
+<style>
+  .resume {
+    padding-block: 3rem 1rem;
+  }
+  .top {
+    display: grid;
+    gap: 1rem;
+    border-bottom: 3px solid var(--accent-soft);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    margin: 0;
+    font-size: 2.4rem;
+  }
+  .headline {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 1.15rem;
+  }
+  .location {
+    margin: 0.1rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .where {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+  }
+  .print {
+    justify-self: start;
+    font: inherit;
+    font-size: 0.9rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+  }
+  .print:hover {
+    border-color: var(--accent);
+  }
+  h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin: 2rem 0 0.75rem;
+  }
+  .entry + .entry {
+    margin-top: 1.25rem;
+  }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .period {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .role {
+    margin: 0.1rem 0 0;
+    font-style: italic;
+    color: var(--muted);
+  }
+  .entry p:last-child,
+  section > p {
+    margin: 0.4rem 0 0;
+  }
+
+  @media print {
+    @page {
+      margin: 1.5cm;
+    }
+    :global(body) {
+      background: #fff;
+      color: #000;
+      font-size: 10.5pt;
+      line-height: 1.45;
+    }
+    .resume {
+      padding: 0;
+      max-width: none;
+    }
+    .print,
+    :global(.skip-link) {
+      display: none;
+    }
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    .headline,
+    .location,
+    .where,
+    .role,
+    .period,
+    h2 {
+      color: #444;
+    }
+    .entry {
+      break-inside: avoid;
+    }
+  }
+</style>

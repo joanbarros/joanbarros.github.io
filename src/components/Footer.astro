@@ -1,0 +1,36 @@
+---
+import { profile } from "../data/profile";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© {year} {profile.name}</p>
+    <p><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    padding-block: 2rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+  }
+  p {
+    margin: 0;
+  }
+  @media print {
+    .site-footer {
+      display: none;
+    }
+  }
+</style>

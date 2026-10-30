@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+---
+
+<Base title="Page not found">
+  <Header slot="header" />
+  <section class="container">
+    <h1>Page not found</h1>
+    <p>That page doesn't exist. <a href="/">Go back home</a>.</p>
+  </section>
+</Base>
+
+<style>
+  section {
+    padding-block: 5rem;
+  }
+</style>
