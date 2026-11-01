@@ -5,6 +5,7 @@ import Base from "../layouts/Base.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Timeline from "../components/Timeline.astro";
+import Icon from "../components/Icon.astro";
 import portrait from "../assets/me.jpg";
 import { profile } from "../data/profile";
 import { sortTimeline } from "../lib/period";
@@ -32,11 +33,12 @@ const entries = sortTimeline(await getCollection("timeline"));
       <p class="headline">{profile.headline}</p>
       <p class="location">{profile.location}</p>
       <ul class="links">
-        <li><a href={`mailto:${profile.email}`}>Email</a></li>
+        <li><a href={`mailto:${profile.email}`}><Icon name="email" />Email</a></li>
         {
           profile.links.map((link) => (
             <li>
               <a href={link.href} rel="me noopener">
+                {link.icon && <Icon name={link.icon} />}
                 {link.label}
               </a>
             </li>

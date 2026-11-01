@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Icon from "../components/Icon.astro";
 import { profile } from "../data/profile";
 import { formatPeriod, sortTimeline } from "../lib/period";
 
@@ -24,11 +25,11 @@ const sections = [
         <p class="location">{profile.location}</p>
       </div>
       <ul class="contact">
-        <li><a href={`mailto:${profile.email}`}>{profile.email}</a></li>
+        <li><a href={`mailto:${profile.email}`}><Icon name="email" />{profile.email}</a></li>
         {
-          profile.links.filter((link) => !("resume" in link) || link.resume).map((link) => (
+          profile.links.filter((link) => link.resume !== false).map((link) => (
             <li>
-              <a href={link.href}>{link.href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a>
+              <a href={link.href}>{link.icon && <Icon name={link.icon} />}{link.href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a>
             </li>
           ))
         }

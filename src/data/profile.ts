@@ -1,4 +1,14 @@
 // Site-wide personal details. Edit here; every page reads from this file.
+import type { IconName } from "../components/Icon.astro";
+
+type Link = {
+  label: string;
+  href: string;
+  icon?: IconName;
+  // Set to false to show the link on the homepage but not on the resume.
+  resume?: boolean;
+};
+
 export const profile = {
   name: "Joan Barros",
   headline: "Senior Software Engineer",
@@ -38,11 +48,11 @@ export const profile = {
     { name: "French", level: "Elementary" },
   ],
   links: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/joanbarros/" },
-    { label: "GitHub", href: "https://github.com/joanbarros" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/joanbarros/", icon: "linkedin" },
+    { label: "GitHub", href: "https://github.com/joanbarros", icon: "github" },
     { label: "Blog", href: "https://joanbarros.blogspot.com/", resume: false },
     { label: "Ant Tech Solutions", href: "https://www.ant-tech.com/", resume: false },
     { label: "Stack Overflow", href: "https://stackoverflow.com/users/244054/joan-barros", resume: false },
-    { label: "X / Twitter", href: "https://x.com/joanbarros" },
-  ],
+    { label: "X / Twitter", href: "https://x.com/joanbarros", icon: "x" },
+  ] as Link[],
 } as const;
