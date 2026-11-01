@@ -40,6 +40,9 @@ export const profile = {
   links: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/joanbarros/" },
     { label: "GitHub", href: "https://github.com/joanbarros" },
+    { label: "Blog", href: "https://joanbarros.blogspot.com/", resume: false },
+    { label: "Ant Tech Solutions", href: "https://www.ant-tech.com/", resume: false },
+    { label: "Stack Overflow", href: "https://stackoverflow.com/users/244054/joan-barros", resume: false },
     { label: "X / Twitter", href: "https://x.com/joanbarros" },
   ],
 } as const;
