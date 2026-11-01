@@ -8,10 +8,24 @@
   role: Senior Software Engineer I
   location: Santo Domingo, Dominican Republic
   start: "2025-08"
-  # The LinkedIn export lists Oct 2026 as the end date. Remove `end`
-  # if this is still your current role.
   end: "2026-10"
   url: https://www.payroc.com/
+  summary: >-
+    Then Agilisa and Dynamics Payments (the Puerto Rico part of the company)
+    were acquired by Payroc, which brought new changes and improvements to the
+    development process. There I helped develop and transition our workflow
+    and DevOps capabilities. I was tasked with maintaining the two notification
+    and file platforms, and later got involved with all the other platforms
+    equally.
+
+    While at Payroc the AI revolution happened, and I experienced the shift
+    from initial dabbles in AI to the adoption of a full agentic workflow (or at
+    least that was the direction we were moving towards). During that
+    transition I helped figure out the changes our processes needed to better
+    optimize for the full agentic workflow the company was aiming for.
+
+    My time at Payroc came to an end when the company started a restructuring
+    for financial and strategic reasons.
 
 - id: agilisa
   kind: work
@@ -19,6 +33,22 @@
   role: Senior Software Engineer
   start: "2018-08"
   end: "2025-08"
+  summary: >-
+    When Agilisa and Business Computer merged, I worked on some client projects
+    that needed to be completed and improved in some areas, primarily the
+    design and the architecture. Later on I was assigned to help design and
+    build a new platform to handle credit card issuance for a government social
+    program in Puerto Rico. I was then assigned to work full time with the
+    Puerto Rico team, and I kept maintaining that platform until its sunset.
+
+    While assigned to Puerto Rico, I also built two SaaS-like internal tools.
+    The first one handled the notifications for all our platforms and
+    solutions. It managed the recipients and the templates for each
+    notification, so the platforms only had to provide the metadata and the
+    templates could be managed in one central place. The second one allowed
+    scheduling the generation of file exports and reports from a data source
+    (more often than not a stored procedure), and delivering those files to
+    clients via email (using the notification tool) or SFTP.
 
 - id: business-computer-pos
   kind: work
@@ -27,6 +57,12 @@
   location: Santo Domingo, Dominican Republic
   start: "2018-08"
   end: "2020-02"
+  summary: >-
+    At Business Computer I started working on mobile development, specifically
+    with Xamarin. I learned a lot about the corporate side of internal
+    applications, and about solutions that involved integrating with existing
+    legacy or semi-legacy software, like POS software, and internal tools for
+    processes like inventory management and other similar administrative tasks.
 
 - id: ant-tech
   kind: work

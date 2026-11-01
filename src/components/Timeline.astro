@@ -35,7 +35,7 @@ const { entries } = Astro.props;
               )}
             </h3>
             {data.role && <p class="role">{data.role}</p>}
-            {data.summary && <p class="summary">{data.summary}</p>}
+            {data.summary?.split("\n").map((paragraph) => <p class="summary">{paragraph}</p>)}
           </article>
         </li>
       );
