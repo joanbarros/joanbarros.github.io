@@ -26,7 +26,7 @@ export const profile = {
     "Systems analysis",
     "Solution development & maintenance",
     "Reporting dashboards",
-    "Artificial intelligence",
+    "AI & agentic development workflows",
     "Algorithms & design patterns",
     "Technical support & systems",
   ],
@@ -41,6 +41,9 @@ export const profile = {
     "Python",
     "Ruby",
     "Go",
+    "Claude Code",
+    "Codex",
+    "Local LLMs",
   ],
   languages: [
     { name: "Spanish", level: "Native or bilingual" },
